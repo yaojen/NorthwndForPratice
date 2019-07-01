@@ -12,7 +12,7 @@ using Northwnd.Models.Repository;
 
 namespace Northwnd.Service
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private IRepository<Category> repository = new GenericRepository<Category>();
 
