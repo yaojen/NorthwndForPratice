@@ -253,7 +253,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Northwnd.Models\Northwnd.Models.csproj">
+      <Project>{fff90879-e460-4ee6-af16-50781bdb2ca0}</Project>
+      <Name>Northwnd.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwnd.Service\Northwnd.Service.csproj">
+      <Project>{ff6c2926-04d3-4f4b-8c1b-40f505966ea8}</Project>
+      <Name>Northwnd.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
