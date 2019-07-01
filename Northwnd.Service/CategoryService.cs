@@ -14,9 +14,14 @@ namespace Northwnd.Service
 {
     public class CategoryService : ICategoryService
     {
-        private IRepository<Category> repository = new GenericRepository<Category>();
+        //private IRepository<Category> repository = new GenericRepository<Category>();
+        private IRepository<Category> _repository;
 
-
+        public CategoryService(IRepository<Category> repository)
+        {
+            this._repository = repository;
+        }
+        
         public IResult Create(Category instance)
         {
             if (instance == null)
@@ -27,7 +32,7 @@ namespace Northwnd.Service
             IResult result = new Result(false);
             try
             {
-                this.repository.Create(instance);
+                this._repository.Create(instance);
                 result.Success = true;
             }
             catch (Exception ex)
@@ -47,7 +52,7 @@ namespace Northwnd.Service
             IResult result = new Result(false);
             try
             {
-                this.repository.Update(instance);
+                this._repository.Update(instance);
                 result.Success = true;
             }
             catch (Exception ex)
@@ -69,7 +74,7 @@ namespace Northwnd.Service
             try
             {
                 var instance = this.GetByID(categoryID);
-                this.repository.Delete(instance);
+                this._repository.Delete(instance);
                 result.Success = true;
             }
             catch (Exception ex)
@@ -81,17 +86,17 @@ namespace Northwnd.Service
 
         public bool IsExists(int categoryID)
         {
-            return this.repository.GetAll().Any(x => x.CategoryID == categoryID);
+            return this._repository.GetAll().Any(x => x.CategoryID == categoryID);
         }
 
         public Category GetByID(int categoryID)
         {
-            return this.repository.Get(x => x.CategoryID == categoryID);
+            return this._repository.Get(x => x.CategoryID == categoryID);
         }
 
         public IEnumerable<Category> GetAll()
         {
-            return this.repository.GetAll();
+            return this._repository.GetAll();
         }
     }
 }

@@ -9,23 +9,27 @@ using System.Web.Mvc;
 using Northwnd.Models;
 using Northwnd.Service.Interface;
 using Northwnd.Service;
-using Northwnd.Models;
 
 namespace Northwnd.Web.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly ICategoryService categoryService;
+        //private readonly ICategoryService categoryService;
+        private readonly ICategoryService _categoryService;
 
-        public CategoriesController()
+        public CategoriesController(ICategoryService service)
         {
-            categoryService = new CategoryService();
+            this._categoryService = service;
         }
+        //public CategoriesController()
+        // {
+        //     _categoryService = new CategoryService();
+        // }
 
         // GET: Categories
         public ActionResult Index()
         {
-            return View(categoryService.GetAll().ToList());
+            return View(_categoryService.GetAll().ToList());
         }
 
         // GET: Categories/Details/5
@@ -36,7 +40,7 @@ namespace Northwnd.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = categoryService.GetByID(id.Value);
+            Category category = _categoryService.GetByID(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -59,7 +63,7 @@ namespace Northwnd.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoryService.Create(category);
+                _categoryService.Create(category);
                 return RedirectToAction("Index");
             }
 
@@ -73,7 +77,7 @@ namespace Northwnd.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = categoryService.GetByID(id.Value);
+            Category category = _categoryService.GetByID(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -90,7 +94,7 @@ namespace Northwnd.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoryService.Update(category);
+                _categoryService.Update(category);
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -104,7 +108,7 @@ namespace Northwnd.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = categoryService.GetByID(id.Value);
+            Category category = _categoryService.GetByID(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -117,10 +121,10 @@ namespace Northwnd.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            categoryService.Delete(id);
+            _categoryService.Delete(id);
             return RedirectToAction("Index");
         }
 
-      
+
     }
 }

@@ -54,6 +54,7 @@
       <DependentUpon>NorthwndEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interface\IUnitOfWork.cs" />
     <Compile Include="NorthwndEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +74,7 @@
       <DependentUpon>NorthwndEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EFUnitOfWork.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
