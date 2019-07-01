@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ICategoryService.cs" />
+    <Compile Include="Interface\IProductService.cs" />
+    <Compile Include="Misc\IResult.cs" />
+    <Compile Include="Misc\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Northwnd.Models\Northwnd.Models.csproj">
+      <Project>{fff90879-e460-4ee6-af16-50781bdb2ca0}</Project>
+      <Name>Northwnd.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
