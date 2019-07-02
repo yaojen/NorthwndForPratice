@@ -9,18 +9,7 @@ using Northwnd.Models;
 
 namespace Northwnd.Service.Interface
 {
-    public interface ICategoryService
+    public interface ICategoryService : IService<Category>
     {
-        IResult Create(Category instance);
-
-        IResult Update(Category instance);
-
-        IResult Delete(int categoryID);
-
-        bool IsExists(int categoryID);
-
-        Category GetByID(int categoryID);
-
-        IEnumerable<Category> GetAll();
     }
 }

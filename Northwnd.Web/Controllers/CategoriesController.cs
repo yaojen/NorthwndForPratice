@@ -21,15 +21,11 @@ namespace Northwnd.Web.Controllers
         {
             this._categoryService = service;
         }
-        //public CategoriesController()
-        // {
-        //     _categoryService = new CategoryService();
-        // }
 
         // GET: Categories
         public ActionResult Index()
         {
-            return View(_categoryService.GetAll().ToList());
+            return View(_categoryService.GetList(x => true));
         }
 
         // GET: Categories/Details/5
@@ -40,7 +36,7 @@ namespace Northwnd.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = _categoryService.GetByID(id.Value);
+            Category category = _categoryService.GetInfo(x => x.CategoryID == id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -77,7 +73,7 @@ namespace Northwnd.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = _categoryService.GetByID(id.Value);
+            Category category = _categoryService.GetInfo(x => x.CategoryID == id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -88,42 +84,43 @@ namespace Northwnd.Web.Controllers
         // POST: Categories/Edit/5
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
-        {
-            if (ModelState.IsValid)
-            {
-                _categoryService.Update(category);
-                return RedirectToAction("Index");
-            }
-            return View(category);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+                
+        //        _categoryService.Update(category);
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(category);
+        //}
 
         // GET: Categories/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
 
-            Category category = _categoryService.GetByID(id.Value);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
+        //    Category category = _categoryService.GetInfo(x => x.CategoryID == id.Value);
+        //    if (category == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(category);
+        //}
 
-        // POST: Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            _categoryService.Delete(id);
-            return RedirectToAction("Index");
-        }
+        //// POST: Categories/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    _categoryService.Delete(id);
+        //    return RedirectToAction("Index");
+        //}
 
 
     }

@@ -8,20 +8,7 @@ using Northwnd.Service.Misc;
 
 namespace Northwnd.Service.Interface
 {
-    public interface IProductService
+    public interface IProductService : IService<Product>
     {
-        IResult Create(Product instance);
-
-        IResult Update(Product instance);
-
-        IResult Delete(int productID);
-
-        bool IsExists(int productID);
-
-        Product GetByID(int productID);
-
-        IEnumerable<Product> GetAll();
-
-        IEnumerable<Product> GetByCategory(int categoryID);
     }
 }
