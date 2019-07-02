@@ -38,23 +38,23 @@ namespace Northwnd.Web.App_Start
             //註冊service結尾的 物件在Northwnd.Service專案中
             var service = Assembly.Load("Northwnd.Service");
             builder.RegisterAssemblyTypes(service).Where(x => x.Name.EndsWith("Service", StringComparison.Ordinal)).AsImplementedInterfaces();
-            builder.RegisterGeneric(typeof(GenericService<>)).As(typeof(IService<>)).InstancePerDependency();
+            builder.RegisterGeneric(typeof(GenericService<>)).As(typeof(IService<>));
             #endregion
 
             #region 註冊model project
             var models = Assembly.Load("Northwnd.Models");
             //註冊repository
-            builder.RegisterGeneric(typeof(GenericRepository<>))
-                    .As(typeof(IRepository<>))
-                    .InstancePerRequest();
+            //builder.RegisterGeneric(typeof(GenericRepository<>))
+            //        .As(typeof(IRepository<>))
+             //       .InstancePerRequest();
 
             //註冊UnitOfWork
             builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             //註冊dbContext
-            string connectionString = ConfigurationManager.ConnectionStrings["NORTHWNDEntities"].ConnectionString;
+            //string connectionString = ConfigurationManager.ConnectionStrings["NORTHWNDEntities"].ConnectionString;
             builder.RegisterType<NORTHWNDEntities>()
-                    .WithParameter("connectionString", connectionString)
+                    //      .WithParameter("connectionString", connectionString)
                     .As<DbContext>()
                     .InstancePerRequest();
             #endregion
