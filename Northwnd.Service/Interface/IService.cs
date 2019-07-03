@@ -18,8 +18,8 @@ namespace Northwnd.Service.Interface
 
         void Delete(Expression<Func<T, bool>> wherePredicate);
 
-        void Update(T entity,(Expression<Func<T, bool>> wherePredicate));
+        void Update(T entity);
 
-       void SaveChange();
+        void SaveChange();
     }
 }

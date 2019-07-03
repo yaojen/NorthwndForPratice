@@ -85,18 +85,17 @@ namespace Northwnd.Web.Controllers
         // POST: Categories/Edit/5
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-        //        _categoryService.Update(category);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(category);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _categoryService.Update(category);
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
 
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)

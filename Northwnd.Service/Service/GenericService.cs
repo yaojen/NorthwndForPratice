@@ -46,21 +46,17 @@ namespace Northwnd.Service.Service
             }
         }
 
-        public void Update(Expression<Func<T, bool>> wherePredicate)
+        public void Update(T entity)
         {
-            var entity = db.Repository<T>().Read(wherePredicate);
-
-            if (entity != null)
-            {
-                db.Repository<T>().Update(entity);
-            }
+            db.Repository<T>().Update(entity);
         }
+
 
         public void SaveChange()
         {
             db.Save();
         }
 
-
+        
     }
 }
