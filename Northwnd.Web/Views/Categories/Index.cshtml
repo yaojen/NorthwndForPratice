@@ -17,29 +17,33 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Picture)
-        </th>
+        <!--
+    <th>
+        @Html.DisplayNameFor(model => model.Picture)
+    </th>
+        -->
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Picture)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <!--
+    <td>
+        @Html.DisplayFor(modelItem => item.Picture)
+    </td>
+        -->
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+    </td>
+</tr>
 }
 
 </table>

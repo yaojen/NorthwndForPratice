@@ -92,6 +92,7 @@ namespace Northwnd.Web.Controllers
             if (ModelState.IsValid)
             {
                 _categoryService.Update(category);
+                _categoryService.SaveChange();
                 return RedirectToAction("Index");
             }
             return View(category);
