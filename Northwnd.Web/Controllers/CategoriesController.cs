@@ -60,6 +60,7 @@ namespace Northwnd.Web.Controllers
             if (ModelState.IsValid)
             {
                 _categoryService.Create(category);
+                _categoryService.SaveChange();
                 return RedirectToAction("Index");
             }
 
@@ -90,7 +91,7 @@ namespace Northwnd.Web.Controllers
         //{
         //    if (ModelState.IsValid)
         //    {
-                
+
         //        _categoryService.Update(category);
         //        return RedirectToAction("Index");
         //    }
@@ -98,29 +99,27 @@ namespace Northwnd.Web.Controllers
         //}
 
         // GET: Categories/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
-        //    Category category = _categoryService.GetInfo(x => x.CategoryID == id.Value);
-        //    if (category == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(category);
-        //}
+            var category = _categoryService.GetInfo(x => x.CategoryID == id.Value);
+
+            return View(category);
+        }
 
         //// POST: Categories/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    _categoryService.Delete(id);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            _categoryService.Delete(x => x.CategoryID == id);
+            _categoryService.SaveChange();
+            return RedirectToAction("Index");
+        }
 
 
     }

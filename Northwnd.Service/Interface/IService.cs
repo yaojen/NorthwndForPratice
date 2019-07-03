@@ -16,9 +16,9 @@ namespace Northwnd.Service.Interface
 
         void Create(T entity);
 
-        //void Delete(Expression<Func<T, bool>> wherePredicate);
+        void Delete(Expression<Func<T, bool>> wherePredicate);
 
-        //void Update((Expression<Func<T, bool>> wherePredicate));
+        void Update(T entity,(Expression<Func<T, bool>> wherePredicate));
 
        void SaveChange();
     }
