@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
+using Northwnd.AdminWeb.App_Start;
 
 namespace Northwnd.AdminWeb
 {
@@ -24,6 +25,8 @@ namespace Northwnd.AdminWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutofacConfig.Bootstrapper();
         }
 
         void MvcApplication_AuthorizeRequest(object sender, EventArgs e)
