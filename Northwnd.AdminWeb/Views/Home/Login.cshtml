@@ -1,0 +1,13 @@
+﻿@model Northwnd.AdminWeb.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(x => x.Id)<br />
+    @Html.PasswordFor(x => x.Password)<br />
+    <input type="submit" value="登入" />
+}
