@@ -8,7 +8,7 @@ using Northwnd.AdminWeb.ViewModels;
 
 namespace Northwnd.AdminWeb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class HomeController : Controller
     {
 
@@ -17,6 +17,7 @@ namespace Northwnd.AdminWeb.Controllers
             return View();
         }
 
+        [Authorize(Roles ="Kevin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
