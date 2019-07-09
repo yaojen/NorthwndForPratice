@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd.Models", "Northwnd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd.Service", "Northwnd.Service\Northwnd.Service.csproj", "{FF6C2926-04D3-4F4B-8C1B-40F505966EA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd.AdminWeb", "Northwnd.AdminWeb\Northwnd.AdminWeb.csproj", "{11954B0A-3022-4562-B98B-575DEA813F70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FF6C2926-04D3-4F4B-8C1B-40F505966EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF6C2926-04D3-4F4B-8C1B-40F505966EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF6C2926-04D3-4F4B-8C1B-40F505966EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11954B0A-3022-4562-B98B-575DEA813F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11954B0A-3022-4562-B98B-575DEA813F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11954B0A-3022-4562-B98B-575DEA813F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11954B0A-3022-4562-B98B-575DEA813F70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
