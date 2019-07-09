@@ -10,5 +10,7 @@ namespace Northwnd.AdminWeb.ViewModels
         public string Id { get; set; }
         public string Password { get; set; }
 
+        public bool IsRemember { get; set; }
+
     }
 }
