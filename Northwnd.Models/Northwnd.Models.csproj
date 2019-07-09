@@ -76,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EFUnitOfWork.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>NorthwndEntity.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
